@@ -26,7 +26,7 @@ body {
     justify-content: space-between;
     align-items: center; 
     padding: 6px 0;
-    box-shadow: 0 2px 0px #000000;
+    box-shadow: 0 5px 0px #000000;
 }
 
 .upper {
@@ -34,6 +34,7 @@ body {
     font-weight: 700;
     background-color: rgba(255, 255, 255, 0.125);
     padding: 4px 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
     border-radius: 16px;
     margin: 0 16px; 
     display: inline-flex;
@@ -41,18 +42,31 @@ body {
     gap: 6px;
 }
 
-.app {
-    width: 70px;       
-    height: 70px;
-    margin-left: 20px;      
-    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.7); 
-}
-
 #app1 {
+    width: 90px;       
+    height: 90px;
     transform: translateY(60px);
     cursor: pointer;
     border: 5px solid rgb(255, 22, 77);
     border-radius: 50%;
+    margin-left: 20px;      
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.7);
+    display: block;
+    object-fit: cover;
+}
+
+#app2 {
+    width: 40px;       
+    height: 40px;
+    transform: translateY(80px);
+    cursor: pointer;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 20%;
+    background-color: #ffffff;
+    margin-left: 10px;      
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.7);
+    display: block;
+    object-fit: cover;
 }
 #welcome {
     width: 340px; 
@@ -66,7 +80,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
 }
 
-.window-header {
+.header {
     background-color: #222222; 
     height: 32px;
     display: flex;
@@ -76,7 +90,7 @@ body {
     border-bottom: 2px solid black;
 }
 
-.window-buttons {
+.buttons {
     display: flex;
     gap: 8px;
     align-items: center;
@@ -93,7 +107,7 @@ body {
 .dot.minimize { background-color: #ffbd2e; }
 .dot.maximize { background-color: #27c93f; }
 
-.window-title {
+.title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -116,15 +130,19 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    
 }
 
+#p {
+    display: flex;
+}
 .window-main-title {
     font-family: "ComingSoon", monospace;
     font-size: 22px;
     margin: 0;
     padding: 8px 16px;
     color: #ffffff;
-    border-bottom: 2px dashed #ff5f56; 
+    border-bottom: 2px dashed hsl(0, 100%, 50%); 
     letter-spacing: 1px;
     width: 80%;
 }
@@ -159,16 +177,41 @@ body {
     margin: 6px 0;
 }
 
-.github-link {
+.linkmain {
     text-decoration: none;
     font-size: 13px;
     font-weight: 700;
-    border: 1px solid #27c93f;
+    border: 1px solid #000000;
     padding: 4px 12px;
-    border-radius: 12px;
+    border-radius: 14px;
     transition: all 0.2s ease;
-    background-color: #27c93f;
+    background-color: #04ff00;
     color: #000000;
+}
+
+.projects {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid #000000;
+    padding: 4px 12px;
+    border-radius: 14px;
+    transition: all 0.2s ease;
+    background-color: #3f3f3f;
+    color: #ffffff;
+}
+
+#links {
+    width: 340px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid black; 
+    border-radius: 8px;      
+    overflow: hidden;        
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: none;
 }
 
 .audio-bar {
