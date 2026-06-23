@@ -3,91 +3,241 @@
     src: url("./fonts/ComingSoon-Regular.ttf");
 }
 
+:root {
+    --page: #080808;
+    --panel: rgba(18, 18, 18, 0.94);
+    --panel-deep: rgba(10, 10, 10, 0.96);
+    --panel-soft: rgba(255, 255, 255, 0.06);
+    --line: rgba(255, 255, 255, 0.14);
+    --line-strong: rgba(255, 255, 255, 0.28);
+    --text: #f4f4f4;
+    --muted: #a9a9a9;
+    --red: #ff5f56;
+    --yellow: #ffbd2e;
+    --green: #27c93f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-image: url("./images/bg2.png");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    color: white;
+    min-height: 100vh;
+    color: var(--text);
     margin: 0;
     padding: 0;
     overflow: hidden;
-    flex-direction: column;
-}  
+    background-image: url("./images/bg2.png");
+}
+
+.desktop {
+    position: relative;
+    min-height: 100vh;
+    padding: 54px 24px 112px;
+}
+
+.os-menu {
+    position: fixed;
+    top: 6px;
+    right: 16px;
+    left: 16px;
+    z-index: 60;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 12px;
+    color: var(--muted);
+    background: rgba(8, 8, 8, 0.76);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    font-family: "ComingSoon", cursive;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.os-menu-left,
+.os-menu-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+}
+
+.os-mark {
+    color: var(--text);
+    padding-right: 4px;
+}
 
 #bar {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: fixed;
+    right: 16px;
+    bottom: 6px;
+    left: 16px;
+    z-index: 50;
+    min-height: 70px;
     display: flex;
-    background-color: rgb(52, 52, 52);
-    color: #fff;
-    justify-content: space-between;
-    align-items: center; 
-    padding: 6px 0;
-    box-shadow: 0 5px 0px #000000;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 12px;
+    color: var(--text);
+    background: rgba(12, 12, 12, 0.9);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.58), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
 }
 
 .upper {
-    font-family: "ComingSoon";
+    min-height: 38px;
+    font-family: "ComingSoon", cursive;
     font-weight: 700;
-    background-color: rgba(255, 255, 255, 0.125);
-    padding: 4px 15px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
-    border-radius: 16px;
-    margin: 0 16px; 
+    background: var(--panel-soft);
+    padding: 7px 13px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin: 0;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 7px;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-#app1 {
-    width: 90px;       
-    height: 90px;
-    transform: translateY(60px);
-    cursor: pointer;
-    border: 5px solid rgb(255, 22, 77);
-    border-radius: 50%;
-    margin-left: 20px;      
-    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.7);
-    display: block;
-    object-fit: cover;
+.brand {
+    color: var(--text);
+    text-shadow: none;
+    background: linear-gradient(180deg, #f7f7f7, #d5d5d5);
+    color: #070707;
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
-#app2 {
-    width: 40px;       
-    height: 40px;
-    transform: translateY(80px);
-    cursor: pointer;
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 20%;
-    background-color: #ffffff;
-    margin-left: 10px;      
-    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.7);
-    display: block;
-    object-fit: cover;
+#timecheck {
+    color: var(--muted);
+    font-size: 13px;
+    margin-left: auto;
 }
-#welcome {
-    width: 340px; 
+
+.desktop-app:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: var(--line-strong);
+}
+
+.desktop-icons {
+    position: fixed;
+    left: 24px;
+    top: 82px;
+    bottom: auto;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.desktop-app {
+    width: 86px;
+    min-height: 94px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 8px 6px;
+    font-family: "ComingSoon", cursive;
+    font-size: 12px;
+    line-height: 1.15;
+    text-align: center;
+    text-shadow: 0 2px 4px #000;
+    cursor: pointer;
+    transition: transform 0.16s ease, background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.app-glyph {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #080808;
+    background-image: url("./images/pfp.jpg");
+    background-size: cover;
+    border: 3px solid rgba(255, 255, 255, 0.62);
+    border-radius: 14px;
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.48), inset 0 -4px 0 rgba(0, 0, 0, 0.14);
+    font-family: "ComingSoon", cursive;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+
+}
+
+.app-glyph-welcome {
+    border-radius: 16px 16px 20px 8px;
+}
+
+.app-glyph-links {
+    color: #ffffff;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(90, 90, 90, 0.92));
+    border-color: rgba(0, 0, 0, 0.8);
+}
+
+.app-glyph-notepad {
+    color: #061006;
+    background-image: url(./images/sketch-of-notepad-hand-draw-illustration-line-sketch-vector-737039317.jpg);
+    border-color: rgba(0, 0, 0, 0.74);
+}
+
+.window {
+    width: min(380px, calc(100vw - 48px));
     position: absolute;
+    border: 2px solid rgba(0, 0, 0, 0.34);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--panel);
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.64), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+}
+
+#welcome {
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -54%);
+}
+
+#links {
+    top: 48%;
+    left: 62%;
     transform: translate(-50%, -50%);
-    border: 4px solid black; 
-    border-radius: 8px;      
-    overflow: hidden;        
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    display: none;
+}
+
+#notepad {
+    top: 45%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    display: none;
 }
 
 .header {
-    background-color: #222222; 
-    height: 32px;
+    height: 36px;
     display: flex;
     align-items: center;
     padding: 0 12px;
     position: relative;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid var(--line);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.045));
+    cursor: move;
 }
 
 .buttons {
@@ -101,148 +251,144 @@ body {
     height: 12px;
     border-radius: 50%;
     display: inline-block;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.42);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34), 0 1px 2px rgba(0, 0, 0, 0.28);
 }
 
-.dot.close { background-color: #ff5f56; }
-.dot.minimize { background-color: #ffbd2e; }
-.dot.maximize { background-color: #27c93f; }
+.dot.close { background-color: var(--red); }
+.dot.minimize { background-color: var(--yellow); }
+.dot.maximize { background-color: var(--green); }
 
 .title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    color: #888888;
+    color: var(--muted);
     font-family: "ComingSoon", monospace;
     font-size: 11px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0;
     user-select: none;
 }
 
 .window-content {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("./images/2396.gif");
-    background-size: cover;
-    background-position: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        linear-gradient(rgba(17, 17, 17, 0.9), rgba(8, 8, 8, 0.94)),
+        url("./images/2396.gif") center / cover;
     text-align: center;
-    color: #ffffff;
+    color: var(--text);
     padding: 24px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    
 }
 
 #p {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
 }
+
 .window-main-title {
     font-family: "ComingSoon", monospace;
     font-size: 22px;
     margin: 0;
-    padding: 8px 16px;
-    color: #ffffff;
-    border-bottom: 2px dashed hsl(0, 100%, 50%); 
-    letter-spacing: 1px;
-    width: 80%;
+    padding: 7px 16px;
+    color: var(--text);
+    border-bottom: 1px solid var(--line-strong);
+    width: 86%;
 }
 
 .section-title {
     font-family: "ComingSoon", sans-serif;
-    color: #00ff00;
-    margin: 8px 0 0 0;
+    color: #5ee075;
+    margin: 8px 0 0;
     font-size: 20px;
 }
 
-.intro-text, .bio-text {
-    color: #e0e0e0;
+.intro-text,
+.bio-text {
+    color: #dddddd;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.55;
     margin: 0;
     font-weight: 400;
 }
 
 .highlight-name {
-    color: #ff5f56;
+    color: #ffffff;
     font-weight: 700;
 }
 
 .profile-avatar {
-    height: 90px; 
-    width: 90px; 
+    height: 92px;
+    width: 92px;
     object-fit: cover;
-    border: 3px solid #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    margin: 6px 0;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+    margin: 4px 0;
 }
 
-.linkmain {
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    border: 1px solid #000000;
-    padding: 4px 12px;
-    border-radius: 14px;
-    transition: all 0.2s ease;
-    background-color: #04ff00;
-    color: #000000;
-}
-
+.linkmain,
 .projects {
     text-decoration: none;
     font-size: 13px;
-    font-weight: 700;
-    border: 1px solid #000000;
-    padding: 4px 12px;
-    border-radius: 14px;
-    transition: all 0.2s ease;
-    background-color: #3f3f3f;
-    color: #ffffff;
+    font-weight: 800;
+    border: 1px solid var(--line-strong);
+    padding: 7px 13px;
+    border-radius: 6px;
+    transition: transform 0.16s ease, background-color 0.16s ease, border-color 0.16s ease;
+    box-shadow: none;
 }
 
-#links {
-    width: 340px; 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 4px solid black; 
-    border-radius: 8px;      
-    overflow: hidden;        
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    display: none;
+.linkmain {
+    background-color: var(--green);
+    border-color: rgba(39, 201, 63, 0.78);
+    color: #041006;
+    box-shadow: 0 4px 0 rgba(12, 74, 23, 0.75);
+}
+
+.projects {
+    background-color: rgba(92, 200, 255, 0.18);
+    border-color: rgba(92, 200, 255, 0.44);
+    color: #dff5ff;
+    box-shadow: 0 4px 0 rgba(5, 35, 49, 0.8);
 }
 
 .audio-bar {
     display: flex;
     align-items: center;
-    background-color: #1a1a1a;
-    border: 2px solid #333333;
+    background-color: var(--panel-deep);
+    border: 1px solid var(--line);
     border-radius: 6px;
-    padding: 6px 12px;
-    width: 90%;
-    margin-top: 10px;
+    padding: 7px 12px;
+    width: 92%;
+    margin-top: 8px;
     gap: 12px;
-    box-sizing: border-box;
 }
 
 .audio-btn {
-    background: #333333;
-    border: none;
-    color: #ffffff;
-    font-size: 14px;
-    width: 28px;
-    height: 28px;
+    flex: 0 0 auto;
+    background: var(--red);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #080808;
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.16s ease;
 }
 
 .audio-track-info {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -250,7 +396,116 @@ body {
 }
 
 .track-name {
-    color: #ffffff;
+    color: var(--text);
     font-size: 11px;
     font-weight: 700;
+}
+
+.track-note {
+    color: #888888;
+    font-size: 9px;
+}
+
+.notepad-content {
+    align-items: stretch;
+    padding: 12px;
+    gap: 10px;
+}
+
+.notepad-text {
+    width: 100%;
+    height: 190px;
+    resize: none;
+    color: var(--text);
+    background: rgba(5, 5, 5, 0.82);
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 10px;
+    outline: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.save-note-btn {
+    align-self: flex-end;
+    color: #041006;
+    background: var(--green);
+    border: 1px solid rgba(39, 201, 63, 0.78);
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: "ComingSoon", cursive;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(12, 74, 23, 0.75);
+    transition: transform 0.16s ease, background-color 0.16s ease;
+}
+
+@media (max-width: 700px) {
+    .desktop {
+        padding: 58px 14px 132px;
+    }
+
+    .os-menu {
+        top: 8px;
+        right: 8px;
+        left: 8px;
+        font-size: 11px;
+    }
+
+    .os-menu-left {
+        gap: 10px;
+    }
+
+    .os-menu-right {
+        display: none;
+    }
+
+    #welcome,
+    #links,
+    #notepad {
+        left: 50%;
+        width: min(350px, calc(100vw - 28px));
+    }
+
+    #links,
+    #notepad {
+        top: 47%;
+    }
+
+    .desktop-icons {
+        left: 12px;
+        top: 74px;
+        bottom: auto;
+        gap: 10px;
+    }
+
+    .desktop-app {
+        width: 72px;
+        min-height: 78px;
+        font-size: 11px;
+    }
+
+    .app-glyph {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    #bar {
+        right: 8px;
+        bottom: 8px;
+        left: 8px;
+        min-height: 86px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .version {
+        display: none;
+    }
+
+    #timecheck {
+        margin-left: 0;
+    }
 }

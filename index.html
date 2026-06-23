@@ -1,71 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>tixOS</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <div id="welcome">
-      <div class="header">
-        <div class="buttons">
-          <span class="dot close" style="cursor: pointer"></span>
-          <span class="dot minimize" style="cursor: pointer"></span>
-          <span class="dot maximize" style="cursor: pointer"></span>
+    <main class="desktop">
+      <div class="os-menu" aria-label="System menu">
+        <div class="os-menu-left">
+          <span class="os-mark">tixOS</span>
+          <span>File</span>
+          <span>View</span>
+          <span>Apps</span>
         </div>
-        <div class="title">WELCOME</div>
-      </div>
-      
-     <div class="window-content">
-      <h1 class="window-main-title">Welcome to my OS</h1>
-      <h2 class="section-title">Introduction</h2>
-      <p class="intro-text">Hello! Welcome to tixOS, an Undertale-inspired personal OS project.</p>
-      <img src="./images/pfp.jpg" class="profile-avatar">   
-      <p class="bio-text">
-        I am <strong class="highlight-name">Bhuvan Rai</strong> <em>(formerly known as tixeriz)</em>, a 17-year-old male passionate about making and creating things cause creation is fun!
-      </p>
-      <a href="https://github.com/bhuvan-rai" class="linkmain" target="_blank">Official Github</a>
-      <div class="audio-bar">
-        <audio id="os-audio" src="./audio/ruins.mp3" autoplay loop></audio>
-        <button id="audio-control-btn" class="audio-btn">▶</button>
-        <div class="audio-track-info">
-          <span class="track-name">✨ ruins.mp3</span>
-          <span style="color: #888888; font-size: 9px;">i like this</span>
+        <div class="os-menu-right">
+          <span>online</span>
         </div>
       </div>
-     </div>
-    </div>
+
+      <div id="welcome" class="window">
+        <div class="header">
+          <div class="buttons">
+            <span class="dot close"></span>
+            <span class="dot minimize"></span>
+            <span class="dot maximize"></span>
+          </div>
+          <div class="title">WELCOME</div>
+        </div>
+
+        <div class="window-content">
+          <h1 class="window-main-title">Welcome to my OS</h1>
+          <h2 class="section-title">Introduction</h2>
+          <p class="intro-text">Hello! Welcome to tixOS, an Undertale-inspired personal OS project.</p>
+          <img src="./images/pfp.jpg" class="profile-avatar" alt="Bhuvan Rai profile photo">
+          <p class="bio-text">
+            I am <strong class="highlight-name">Bhuvan Rai</strong> <em>(formerly known as tixeriz)</em>, a 17-year-old male passionate about making and creating things cause creation is fun!
+          </p>
+          <a href="https://github.com/bhuvan-rai" class="linkmain" target="_blank">Official Github</a>
+          <div class="audio-bar">
+            <audio id="os-audio" src="./audio/ruins.mp3" autoplay loop></audio>
+            <button id="audio-control-btn" class="audio-btn" aria-label="Play or pause music">&#9654;</button>
+            <div class="audio-track-info">
+              <span class="track-name">ruins.mp3</span>
+              <span class="track-note">i like this</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="links" class="window">
+        <div class="header">
+          <div class="buttons">
+            <span class="dot close"></span>
+            <span class="dot minimize"></span>
+            <span class="dot maximize"></span>
+          </div>
+          <div class="title">LINKS</div>
+        </div>
+        <div class="window-content">
+          <h1 class="window-main-title">Links</h1>
+          <a href="https://github.com/bhuvan-rai" class="linkmain" target="_blank">Official Github</a>
+          <a href="https://stardance.hackclub.com/@tixeriz/projects" class="linkmain" target="_blank">Stardance Profile</a>
+          <h1 class="window-main-title">Projects</h1>
+          <div id="p">
+            <a href="https://github.com/bhuvan-rai/visualdigits" id="p1" class="projects" target="_blank">visual digits</a>
+            <a href="https://github.com/bhuvan-rai/downsorter" id="p2" class="projects" target="_blank">downsorter</a>
+            <a href="https://github.com/bhuvan-rai/personalOS" id="p3" class="projects" target="_blank">personalOS</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="notepad" class="window">
+        <div class="header">
+          <div class="buttons">
+            <span class="dot close"></span>
+            <span class="dot minimize"></span>
+            <span class="dot maximize"></span>
+          </div>
+          <div class="title">NOTEPAD</div>
+        </div>
+        <div class="window-content notepad-content">
+          <textarea id="notepad-text" class="notepad-text" spellcheck="true" placeholder="write something..."></textarea>
+          <button id="save-note-btn" class="save-note-btn" type="button">Save .txt</button>
+        </div>
+      </div>
+
+      <div class="desktop-icons" aria-label="Desktop apps">
+        <button class="desktop-app" type="button" data-window="welcome" aria-label="Open welcome">
+          <span class="app-glyph app-glyph-welcome" aria-hidden="true"></span>
+          <span>Welcome</span>
+        </button>
+        <button class="desktop-app" type="button" data-window="links" aria-label="Open links">
+          <span class="app-glyph app-glyph-links" aria-hidden="true">></span>
+          <span>Links</span>
+        </button>
+        <button class="desktop-app" type="button" data-window="notepad" aria-label="Open notepad">
+          <span class="app-glyph app-glyph-notepad" aria-hidden="true"></span>
+          <span>Notepad</span>
+        </button>
+      </div>
+    </main>
+
     <div id="bar">
-      <p class="upper">tixOS</p>
-      <p class="upper">
-        version 0.1 <img src="./images/heart.png" style="height: 20px; width: 20px;">
+      <p class="upper brand">tixOS</p>
+      <p class="upper version">
+        v0.2
       </p>
       <p id="timecheck" class="upper"></p>
-    </div>
-    <div id="links">
-      <div class="header">
-        <div class="buttons">
-          <span class="dot close" style="cursor: pointer"></span>
-          <span class="dot minimize" style="cursor: pointer"></span>
-          <span class="dot maximize" style="cursor: pointer"></span>
-        </div>
-        <div class="title">LINKS</div>
-      </div>
-     <div class="window-content">
-      <h1 class="window-main-title">Links</h1>
-      <a href="https://github.com/bhuvan-rai" class="linkmain" target="_blank">Official Github</a>
-      <a href="https://stardance.hackclub.com/@tixeriz/projects" class="linkmain" target="_blank">Stardance Profile</a>
-      <h1 class="window-main-title">Projects</h1>
-      <div id="p">
-        <a href="https://github.com/bhuvan-rai/visualdigits" id="p1" class="projects" target="_blank">visual digits</a>
-        <a href="https://github.com/bhuvan-rai/downsorter" id="p2" class="projects" target="_blank">downsorter</a>
-        <a href="https://github.com/bhuvan-rai/personalOS" id="p3"class="projects" target="_blank">personalOS</a>
-      </div>
-     </div>
-    </div>
-    <div>
-      <img src="./images/pfp.jpg" id="app1">
-      <img src="./images/link.png" id="app2">
     </div>
     <script src="./script.js"></script>
   </body>
